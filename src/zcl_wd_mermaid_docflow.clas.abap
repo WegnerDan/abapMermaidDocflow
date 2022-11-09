@@ -174,10 +174,10 @@ CLASS zcl_wd_mermaid_docflow IMPLEMENTATION.
       IF NOT line_exists( nodes[ id = node_id ] ).
         IF item_mode = abap_false
         OR <docflow_line>-itemnum = itemnum0.
-          DATA(node_item_text) = |{ <docflow_line>-doctype }: { condense( |{ <docflow_line>-docnum ALPHA = OUT }| ) }|.
+          DATA(node_item_text) = |{ <docflow_line>-doctype } { condense( |{ <docflow_line>-docnum ALPHA = OUT }| ) }|.
         ELSE.
-          node_item_text = |{ <docflow_line>-doctype }: { condense( |{ <docflow_line>-docnum ALPHA = OUT }| ) } / {
-                                                          condense( |{ <docflow_line>-itemnum ALPHA = OUT }| ) }|.
+          node_item_text = |{ <docflow_line>-doctype } { condense( |{ <docflow_line>-docnum ALPHA = OUT }| ) } / {
+                                                         condense( |{ <docflow_line>-itemnum ALPHA = OUT }| ) }|.
         ENDIF.
         APPEND VALUE #( id = node_id
                         docnum = <docflow_line>-docnum
