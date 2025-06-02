@@ -179,6 +179,9 @@ CLASS zcl_wd_mermaid_docflow IMPLEMENTATION.
           node_item_text = |{ <docflow_line>-doctype } { condense( |{ <docflow_line>-docnum ALPHA = OUT }| ) } / {
                                                          condense( |{ <docflow_line>-itemnum ALPHA = OUT }| ) }|.
         ENDIF.
+
+        node_item_text = |"{ node_item_text }"|.
+
         APPEND VALUE #( id = node_id
                         docnum = <docflow_line>-docnum
                         itemnum = <docflow_line>-itemnum
